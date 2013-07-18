@@ -18,23 +18,39 @@
     <link rel="stylesheet" href="https://app.divshot.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://app.divshot.com/css/bootstrap-responsive.css">
     <div class="container">
-      <ul class="nav nav-tabs">
-        <li class="active">
-          <a href="#">Project Name</a> 
-        </li>
-        <li>
-          <a href="#">Home</a> 
-        </li>
-        <li>
-          <a href="#">About</a> 
-        </li>
-        <li>
-          <a href="#">Contact</a> 
-        </li>
-        <li>
-          <a href="#">Dropdown</a> 
-        </li>
-      </ul>
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+            <a class="brand" href="#">Project name</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li>
+                  <a href="#" class="active">Home</a> 
+                </li>
+                <li>
+                  <a href="#">About</a> 
+                </li>
+                <li>
+                  <a href="#">Contact</a> 
+                </li>
+                <li>
+                  <a href="#">Dropdown</a> 
+                </li>
+              </ul>
+            </div>
+            <form class="navbar-form pull-right">
+              <input class="span2" type="text" placeholder="Email">
+              <input class="span2" type="password" placeholder="Password">
+              <button type="submit" class="btn">Sign in</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 
