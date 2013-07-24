@@ -8,5 +8,51 @@
   </tr>
 
   <!-- TODO: add your ERb here -->
-
+  
+  <% @patients.each do |patient| %>
+    <tr>
+      <td><%= patient.id %></td>
+      
+      <% if patient.systolic < 120 %>
+        <td>
+          <span style='color:green'>
+            <%= patient.systolic %>
+          </span>
+        </td>
+     
+      <% elsif patient.systolic < 140 %>
+        <td>
+          <span style='color:yellow'>
+            <%= patient.systolic %>
+          </span>
+        </td>
+        
+       <% else patient.systolic >= 140 %>
+        <td>
+        <span style='color:red'>
+          <%= patient.systolic %>
+        </td>
+       <% end %>
+       
+    <% if patient.diastolic < 80 %>
+      <td>
+        <span style='color:green'>
+          <%= patient.diastolic %>
+        </span>
+      </td>
+     
+    <% elsif patient.diastolic < 90 %>
+      <td>
+        <span style='color:yellow'>
+          <%= patient.diastolic %>
+        </span>
+      </td>
+        
+    <% else patient.diastolic >= 90 %>
+      <td>
+        <span style='color:red'>
+          <%= patient.diastolic %>
+      </td>
+    <% end %>
+  <% end %>
 </table>
