@@ -1,0 +1,48 @@
+<p>
+  Gender:<br>
+  <% if @gender == "Male" %>
+    <input type="radio" name="gender" value="male" checked> Male
+    <input type="radio" name="gender" value="female"> Female
+  <% elsif @gender == "Female" %>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female" checked> Female
+  <% else %>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female
+  <% end %>
+</p>
+
+<p>
+  Favorite color:<br>
+  <% if @favorite_color == "blue" %>
+  <select name="favorite_color">
+    <option>(choose one)</option>
+    <option>red</option>
+    <option>green</option>
+    <option selected="selected">blue</option>
+  </select>
+  <% elsif @favorite_color == "green" %>
+  <select name="favorite_color">
+    <option>(choose one)</option>
+    <option>red</option>
+    <option selected="selected">green</option>
+    <option>blue</option>
+  </select>
+  <% else %>
+<select name="favorite_color">
+    <option>(choose one)</option>
+    <option>red</option>
+    <option>green</option>
+    <option>blue</option>
+  <% end %>
+  </select>
+</p>
+
+<p>
+  Blood donor?<br>
+  <% if @blood_donor == "yes" %>
+   <input type="checkbox" name="is_blood_donor" checked>
+  <% else %>
+    <input type="checkbox" name="is_blood_donor">
+  <% end %>
+</p>
