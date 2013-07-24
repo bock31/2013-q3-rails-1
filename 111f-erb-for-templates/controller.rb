@@ -6,7 +6,7 @@ end
 
 get "/reposts/1" do
   @title = "Spring cleanup for object creation in Ruby"
-  @summary = "A complex object creation can clutter a controller. It’s better to move it into a dedicated method of the corresponding model."
+  @summary = "A complex object creation can clutter a controller. It's better to move it into a dedicated method of the corresponding model."
   @link = "http://blog.8thcolor.com/2013/07/spring-cleanup-for-object-creation-in-rails/"
   halt erb(:repost)
 end

@@ -1,5 +1,5 @@
 Systolic:
-- below 20 is normal
+- below 120 is normal
 - 120-139 is borderline high blood pressure
 - 140+ is high blood pressure
 
