@@ -1,25 +1,14 @@
-<p>Example of a simple list:</p>
-
-<ul>
-  <li>Item #1</li>
-  <li>Item #2</li>
-</ul>
-
-<p>Example of a nested list:</p>
-
-<ul>
-  <li>
-    Item #1
-    <ul>
-      <li>A</li>
-      <li>B</li>
+<% @students.each do |student| %>
+  <ul>
+    <li><%= student.first_name %> <%= student.last_name %></li>
+      <ul>
+        <% @exercises.each do |exercise| %>
+          <li><%= exercise.directory %></li>
+        <% end %>
+      </ul>
     </ul>
-  </li>
-  <li>
-    Item #2
-    <ul>
-      <li>C</li>
-      <li>D</li>
-    </ul>
-  </li>
-</ul>
+  <% end %>
+
+<%# ask Daniel about "<% vs. <%=". Also ask about "order of operations" 
+#for html and Ruby syntax and "<%end..." and why I have spaces in mine
+#and he doesn't %>
