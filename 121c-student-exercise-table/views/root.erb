@@ -1,12 +1,14 @@
-<p>Example of a table:</p>
-
 <table border="1">
-  <tr>
-    <td>A1</td>
-    <td>B1</td>
-  </tr>
-  <tr>
-    <td>A2</td>
-    <td>B2</td>
-  </tr>
+  <% @students.each do |student| %>
+    <tr>
+      <td>
+        <strong> <%= student.first_name %> <%= student.last_name %>
+      </td>
+        <% @exercises.each do |exercise| %>
+          <td>
+            <%= exercise.directory %>
+          </td>
+        <% end %>
+      </tr>
+  <% end %>
 </table>
