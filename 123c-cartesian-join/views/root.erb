@@ -1,9 +1,9 @@
-<% @students.each do |student| %>
-  <% @exercises.each do |exercise| %>
-    <ul>
-      <li><%= student.first_name %>'s grade on <%= exercise.directory %></li>
-    </ul>
+<ul>
+  <% @students.each do |student| %>
+    <% @exercises.each do |exercise| %>
+        <li><%= student.first_name %>'s grade on <%= exercise.directory %></li>
+    <% end %>
   <% end %>
-<% end %>
+</ul>
 
-<%#ask Daniel about why I have spaces inbetween each <li>%>
+<%#ask Daniel about "order of operations"%>
