@@ -1,13 +1,13 @@
-<% @students.each do |student| %>
-  <ul>
+<ul>
+  <% @students.each do |student| %>
     <li><%= student.first_name %> <%= student.last_name %></li>
       <ul>
         <% @exercises.each do |exercise| %>
           <li><%= exercise.directory %></li>
         <% end %>
       </ul>
-    </ul>
   <% end %>
+</ul>
 
 <%# ask Daniel about "<% vs. <%=". Also ask about "order of operations" 
 #for html and Ruby syntax and "<%end..." and why I have spaces in mine
