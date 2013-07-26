@@ -11,6 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130726171912) do
+
+  create_table "ducks", :force => true do |t|
+    t.string  "gender"
+    t.integer "weight"
+    t.integer "wingspan"
+  end
+
+  create_table "geese", :force => true do |t|
+    t.string  "gender"
+    t.integer "weight"
+    t.integer "wingspan"
+  end
 
 end
