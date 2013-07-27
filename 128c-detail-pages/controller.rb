@@ -1,7 +1,6 @@
 require '../dvc-sinatra.rb'
 
 get "/" do
-  # TODO second: add code here to load @apartments
   halt erb(:index)
 end
 
