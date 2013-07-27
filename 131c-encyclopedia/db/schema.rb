@@ -11,6 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130727134535) do
+
+  create_table "birds", :force => true do |t|
+    t.text "name"
+    t.text "definition"
+  end
 
 end

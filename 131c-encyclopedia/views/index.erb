@@ -1,0 +1,13 @@
+<h1>Encyclopedia entries</h1>
+
+<ul>
+  <% @types.each do |type| %>
+	  <li>
+	    <a href="/birds/<%= type.id %>">
+	      <%= type.name %>
+	    </a>
+	  </li>
+	<% end %>
+</ul>
+
+

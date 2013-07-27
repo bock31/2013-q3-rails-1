@@ -1,3 +1,12 @@
 require '../dvc-sinatra.rb'
 
-# TODO add GET handlers below
+get "/" do
+  @types = Bird.all
+  halt erb(:index)
+end
+
+get "/birds/:id" do
+  id = params[:id]
+  @birds = Bird.find(id)
+  halt erb(:root)
+end
