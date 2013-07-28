@@ -1,3 +1,23 @@
 <h1>World cities</h1>
 
-<!-- TODO: write ERb -->
+<table>
+  <% @cities.each do |city| %>
+    <tr>
+      <td>
+        <%= city.city_name %>, <%= city.country %> 
+      </td>
+      <td>
+        <% if city.city_name == "London" %>
+          <img src="images/gb.png">
+          <a href="/cities/<%= city.id %>">Details</a>     
+        <% elsif city.city_name == "New York" %>
+          <img src="images/us.png">
+          <a href="/cities/<%= city.id %>">Details</a>
+        <% else %>
+          <img src="images/cn.png">
+          <a href="/cities/<%= city.id %>">Details</a>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+</table>

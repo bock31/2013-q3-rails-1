@@ -11,6 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130728130049) do
+
+  create_table "world_cities", :force => true do |t|
+    t.string "city_name"
+    t.text   "country"
+    t.string "time_zone"
+    t.string "population"
+  end
 
 end
