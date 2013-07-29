@@ -11,6 +11,9 @@
       <td><%= patient.id %></td>
       <td><%= patient.systolic %></td>
       <td><%= patient.diastolic %></td>
+      <td>
+        <a href="/patients/<%= patient.id %>">Edit</a>
+      </td>
     </tr>
   <% end %>
 </table>
