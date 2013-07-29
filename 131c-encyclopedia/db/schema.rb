@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(:version => 20130727134535) do
 
   create_table "birds", :force => true do |t|
-    t.text "name"
-    t.text "definition"
+    t.string "name"
+    t.text   "definition"
   end
 
 end
