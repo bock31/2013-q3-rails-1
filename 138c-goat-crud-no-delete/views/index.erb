@@ -1,0 +1,18 @@
+<h1>List of goats</h1>
+
+<% @goats.each do |goat| %>
+  <h2>
+    <%= goat.name %>
+  </h2>
+  <% if goat.gender == "female" %>
+    <p>
+      Her best 100-meter dash was <%= goat.best_100m_time %>.
+      <a href="#">(Edit)</a>
+    <% else %>
+      His best 100-meter dash was <%= goat.best_100m_time %>.
+      <a href="#">(Edit)</a>
+    </p>
+  <% end %>
+<% end %>
+<a href="#">(Add new goat)</a>
+
