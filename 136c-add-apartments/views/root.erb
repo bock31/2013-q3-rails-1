@@ -19,4 +19,12 @@
       <td><a href="<%= apartment.url %>"><%= apartment.url %></a></td>
     </tr>
   <% end %>
+  <tr>
+    <td>(new)</td>
+    <td><%== text_field_tag :subject, "", size: 40 %></td>
+    <td><%== text_field_tag :subject, "", size: 20 %></td>
+    <td><%== text_field_tag :subject, "", size: 20 %></td>
+    <td><%== text_field_tag :subject, "", size: 40 %></td>
+    <td><%== submit_tag "Create" %></td>
+  </tr>
 </table>
