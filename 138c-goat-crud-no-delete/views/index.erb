@@ -7,12 +7,11 @@
   <% if goat.gender == "female" %>
     <p>
       Her best 100-meter dash was <%= goat.best_100m_time %>.
-      <a href="#">(Edit)</a>
+      <a href="/edit/<%= goat.id %>">(Edit)</a>
     <% else %>
       His best 100-meter dash was <%= goat.best_100m_time %>.
-      <a href="#">(Edit)</a>
+      <a href="/edit/<%= goat.id %>">(Edit)</a>
     </p>
   <% end %>
 <% end %>
-<a href="#">(Add new goat)</a>
-
+<a href="/new-goat">(Add new goat)</a>
