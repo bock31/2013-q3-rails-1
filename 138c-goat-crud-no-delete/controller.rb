@@ -6,7 +6,8 @@ get "/" do
 end
 
 get "/new-goat" do
-  halt erb(:new)
+  @goat = RacingGoat.new
+  halt erb(:edit)
 end
 
 get "/edit/:id" do
