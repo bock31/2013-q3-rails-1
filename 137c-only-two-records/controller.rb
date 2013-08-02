@@ -30,3 +30,7 @@ post "/line2" do
   line_edit.save!
   redirect "/"
 end
+
+# "variable.ORDER(:id).all" keeps things
+# in order when updating a variable (in this
+# case, a line [i.e. Robert T Goodman (line 1)])
