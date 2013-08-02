@@ -1,13 +1,40 @@
-First name<br>
+First name:<br>
 <%== text_field_tag :first_name, "Abe" %>
 <hr>
 
-Biography<br>
+Biography:<br>
 <%== text_area_tag :biography, "As a young boy, Abe lived in a log cabin." %>
 <hr>
 
-<!-- TODO: fill out this part -->
-
+Deceased:<br>
+<%== check_box_tag :is_deceased, "on", true %>
 <hr>
 
+Occupation:<br>
+<%== radio_button_tag :occupation, "Lawyer", @user_occupation == "lawyer" %>
+Lawyer
+<%== radio_button_tag :occupation, "Sailor", @user_occupation == "sailor" %>
+Sailor
+<%== radio_button_tag :occupation, "Soldier", @user_occupation == "soldier" %>
+Soldier
+<%== radio_button_tag :occupation, "Farmer", @user_occupation == "farmer" %>
+Farmer
+<hr>
+
+<%== select_tag :office, options_for_select([
+  ["President", "POTUS"],
+  ["Vice President", "VP"]], ""), 
+  prompt: "Choose office..." %>
+<hr>
+
+Occupation:<br>
+<%== select_tag :occupation, 
+  options_from_collection_for_select(
+  @occupations, :id, :name, ""),
+  prompt: "Choose an occupation..." %>
+<hr>
+  
 <%== submit_tag "Revise history" %>
+
+<!# best practices is to put the button label (i.e. Democrat) to 
+ the right of the button %>
