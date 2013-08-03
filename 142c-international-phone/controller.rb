@@ -11,5 +11,10 @@ get "/:id" do
 end
 
 post "/:id" do
-  # TODO: Write this part
+  @phone              = Phone.find(params[:id])
+  @phone.number       = params[:number]
+  @phone.country_code = params[:country_code]
+  @phone.phone_type   = params[:phone_type]
+  @phone.save!
+  redirect "/"
 end
