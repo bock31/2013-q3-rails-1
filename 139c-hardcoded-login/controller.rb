@@ -5,7 +5,19 @@ get "/" do
 end
 
 post "/" do
-  # TODO: write this part
+  @old_username = params[:username]
+
+  if params[:username] != "amy"
+    @error = "Unknown username."
+    halt erb(:login)
+  end
+  
+  if params[:password] != "123"
+    @error = "Incorrect password."
+    halt erb(:login)
+  end
+  
+  redirect "/welcome"
 end
 
 get "/welcome" do
