@@ -5,7 +5,8 @@ get "/" do
 end
 
 post "/" do
-
+# alternate way to write the if statement below:
+# if params[:guest_login] == "on"
   if params[:guest_login] != nil
     redirect "/welcome"
   end
