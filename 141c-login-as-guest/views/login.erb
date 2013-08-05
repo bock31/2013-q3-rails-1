@@ -1,5 +1,3 @@
-<!-- TODO: add a login as guest checkbox -->
-
 <% if @error %>
   <b>Error: <%= @error %></b>
 <% end %>
@@ -19,7 +17,7 @@
 </p>
 
 <p>
-  <%== check_box_tag :guest_login %>
+  <%== check_box_tag :guest_login, "on" %>
   Login as guest
 </p>
 
