@@ -16,3 +16,6 @@ post "/" do
   person.save!
   redirect "/"
 end
+
+# NOTE: the "=='on'" is converting the string in "is.dependent"
+#       to a boolean.
