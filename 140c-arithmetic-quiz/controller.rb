@@ -14,7 +14,7 @@ get "/1" do
 end
 
 post "/1" do
-  if params[:selected_answer] == "13"
+  if params[:selected_answer] == "c"
     redirect "/2"
   else
     redirect "/1"
@@ -31,7 +31,7 @@ get "/2" do
 end
 
 post "/2" do
-  if params[:selected_answer] == "2"
+  if params[:selected_answer] == "a"
     redirect "/done"
   else
     redirect "/2"
@@ -41,3 +41,6 @@ end
 get "/done" do
   halt erb(:done)
 end
+
+# NOTE: could have written my if statement as:
+#       if params[:selected_answer] == "13" or "2"
