@@ -1,3 +1,38 @@
 <h1>Page 4 of 4: Review</h1>
 
-<!-- TODO: Write this -->
+<h2>Name</h2>
+
+  <%= @customer.first_name %>
+  <%= @customer.last_name %>
+
+<h2>Shipping speed</h2>
+
+  <% if @customer.ship_speed == "ground" %>
+    Ground
+  <% elsif @customer.ship_speed = "next_day" %>
+    Next Day
+  <% end %>
+
+<h2>Shipping address</h2>
+
+  <%= @customer.ship_address1 %>
+  <br>
+  <%= @customer.ship_city %>, 
+  <%= @customer.ship_state %> 
+  <%= @customer.ship_zip_code %>
+
+<h2>Billing address</h2>
+
+  <%= @customer.bill_address1 %>
+  <br>
+  <%= @customer.bill_city %>, 
+  <%= @customer.bill_state %> 
+  <%= @customer.bill_zip_code %>
+
+<p>
+  <%== submit_tag "Go back" %>
+  or
+  <%== submit_tag "Start over" %>
+  or
+  <%== submit_tag "Place order" %>
+</p>
