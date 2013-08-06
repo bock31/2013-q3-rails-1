@@ -8,18 +8,19 @@ end
 
 get "/sign_up" do
   @customer = Customer.first
-
+  
   halt erb(:sign_up)
 end
 
 post "/sign_up" do
-  @customer = Customer.first
-
+  @customer = Customer.first 
+  
   if params[:commit] == "Go back"
     redirect "/"
   elsif params[:commit] == "Continue"
     @customer.first_name = params[:first_name]
     @customer.last_name  = params[:last_name]
+    @customer.ship_city  = params[:city]
     if @customer.save
       redirect "/shipping"
     else
@@ -39,22 +40,23 @@ post "/shipping" do
   @customer = Customer.first
   @u_s_states = USState.order(:name).all
 
+  
   if params[:commit] == "Go back"
     redirect "/sign_up"
   elsif params[:commit] == "Continue"
     if params[:ship_speed] == nil
-      @customer.ship_speed = "" # just so validation fails
+      @customer.ship_speed = ""
     else
       @customer.ship_speed = params[:ship_speed]
     end
-    @customer.ship_address1  = params[:address1]
-    @customer.ship_city      = params[:city]
-    @customer.ship_state     = params[:state]
-    @customer.ship_zip_code  = params[:zip_code]
+    @customer.ship_address1 = params[:address1]
+    @customer.ship_city     = params[:city]
+    @customer.ship_state    = params[:state]
+    @customer.ship_zip_code = params[:zip]
     if @customer.save
       redirect "/billing"
     else
-      halt erb(:shipping)
+        halt erb(:shipping)
     end
   end
 end
@@ -69,7 +71,7 @@ end
 post "/billing" do
   @customer = Customer.first
   @u_s_states = USState.order(:name).all
-
+  
   if params[:commit] == "Go back"
     redirect "/shipping"
   elsif params[:commit] == "Continue"
@@ -84,11 +86,11 @@ post "/billing" do
       @customer.bill_address1 = params[:address1]
       @customer.bill_city     = params[:city]
       @customer.bill_state    = params[:state]
-      @customer.bill_zip_code = params[:zip_code]
+      @customer.bill_zip_code = params[:zip]
     end
     if @customer.save
       redirect "/review"
-    else
+    else 
       halt erb(:billing)
     end
   end
@@ -102,14 +104,14 @@ end
 
 post "/review" do
   @customer = Customer.first
-
+  
   if params[:commit] == "Go back"
     redirect "/billing"
   elsif params[:commit] == "Start over"
     @customer.destroy
     Customer.create
     redirect "/"
-  elsif params[:commit] == "Place order"
+  else params[:commit] == "Place order"
     redirect "/thank_you"
   end
 end
