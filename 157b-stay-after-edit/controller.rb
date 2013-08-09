@@ -1,7 +1,7 @@
 require '../dvc-sinatra.rb'
 
 get "/" do
-  @phones = Phone.all
+  @phones = Phone.order(:id).all
   halt erb(:index)
 end
 
@@ -20,6 +20,6 @@ post "/:id" do
     @phone.phone_type     = params[:phone_type]
     @phone.has_voice_mail = params[:has_voice_mail] == "on"
     @phone.save!
-    redirect "/"
+    redirect "/#{params[:id]}"
   end
 end
