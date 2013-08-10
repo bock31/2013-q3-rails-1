@@ -46,7 +46,7 @@ post "/shipping" do
     if params[:ship_speed] == nil # nil means nothing has been selected;
       @customer.ship_speed = ""   # if nothing has been selected assign
     else                          # @customer.ship_speed "" (a empty string)
-      @customer.ship_speed = params[:ship_speed] # above causes an error message
+      @customer.ship_speed = params[:ship_speed] # above will cause an error message
     end
     @customer.ship_address1 = params[:address1]
     @customer.ship_city     = params[:city]
