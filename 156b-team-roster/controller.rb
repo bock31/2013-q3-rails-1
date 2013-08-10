@@ -8,12 +8,13 @@ end
 post "/" do
   numbers = [1, 2, 3]
   numbers.each do |number|
-  if params["new_name_#{number}"] != ""
-    new_person = Person.new
-    new_person.name = params["new_name_#{number}"]
-    new_person.save!
+    if params["new_name_#{number}"] != ""
+      new_person = Person.new
+      new_person.name = params["new_name_#{number}"]
+      new_person.save!
+    end
   end
 
   redirect "/"
 end
-end
+
