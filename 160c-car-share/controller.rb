@@ -5,11 +5,21 @@ get "/" do
 end
 
 get "/login" do 
+  @username = params[:username]
+
   halt erb(:login)
 end
 
 post "/login" do 
-  redirect "/reservations/1"
+  @username = params[:username]
+  
+  if @username == "jen"
+    redirect "/reservations/1"
+  else
+    halt erb(:login)
+  end
+
+  halt erb(:login)
 end
 
 get "/reservations/1" do
