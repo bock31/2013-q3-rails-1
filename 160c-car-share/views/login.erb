@@ -1,7 +1,5 @@
-<% if @username == nil %>
-  <!-- no message because we are on the GET page -->
-<% else %>
-  <p><b>Error: Unknown username</b></p>
+<% if @error != nil %>
+  <p><b>Error: <%= @error %></b><p>
 <% end %>
 
 <h1>Car Share login</h1>
