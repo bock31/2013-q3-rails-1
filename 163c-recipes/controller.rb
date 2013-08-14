@@ -3,7 +3,6 @@ require '../dvc-sinatra.rb'
 get "/" do
   @recipes = Recipe.order(:id).all
   @title = "All recipes"
-  @authors = Authors.all
   halt erb(:index)
 end
 
