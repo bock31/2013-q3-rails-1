@@ -5,5 +5,6 @@ get "/" do
 end
 
 post "/" do
+  @collectibles = Collectible.all
   halt erb(:answers)
 end
