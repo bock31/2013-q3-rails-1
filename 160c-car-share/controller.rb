@@ -35,3 +35,27 @@ get "/reservations/:id" do
     Car.where(reserving_member_id: @member.id).all
   halt erb(:reservations)
 end
+
+post "/reservations/:member_id" do
+  member_id = params[:member_id]
+  
+  if params[:commit] == "Logout"
+    redirect "/login"
+  end
+
+  Car.all.each do |car|
+    if params[:commit] == "Return car #{car.id}"
+      car.reserving_member_id = nil
+      car.save!
+    end
+ end
+ 
+  Car.all.each do |car|
+    if params[:commit] == "Reserve car #{car.id}"
+      car.reserving_member_id = "#{params[:id]}"
+      car.save!
+    end
+  end
+        
+  redirect "/reservations/#{params[:member_id]}"
+end
