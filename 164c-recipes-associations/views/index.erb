@@ -13,9 +13,13 @@
         </a>
       </td>
       <td>
-        <a href="/by-author/<%= Author.find(recipe.author_id).full_name %>">
-          <%= Author.find(recipe.author_id).full_name %>
-        </a>
+        <a href="/by-author/<%= recipe.author.full_name %>">
+          <%= recipe.author.full_name %></a>
+          
+<!-- Could also write lines 15 & 16 as follows:
+    <a href="/by-author/<%= Author.find(recipe.author_id).full_name %>">
+    <%= Author.find(recipe.author_id).full_name %> -->
+    
       </td>
     </tr>
   <% end %>
