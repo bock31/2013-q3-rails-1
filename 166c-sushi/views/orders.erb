@@ -11,7 +11,17 @@
       <td><%= order.table_number %></td>
       <td>
         <ul>
-          TODO: Write this
+          <% line_items = order.line_items %>
+          <% line_items.each do |line_item| %>
+            <li>
+              <%= line_item.quantity %> 
+              <%= line_item.dish.name %>
+              at
+              <%= "$%.2f" % line_item.dish.price %>
+              =
+              <%= "$%.2f" % line_item.line_price %>
+            </li>
+          <% end %>
         </ul>
       </td>
       <td><%= "$%.2f" % order.total_price %></td>
