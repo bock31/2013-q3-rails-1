@@ -11,7 +11,7 @@ end
 post "/login" do
   found_user = User.where(username: params[:username]).first
 
-  if found_user && params[:password] == found_user.password
+  if found_user != nil && params[:password] == found_user.password
     session[:user_id] = found_user.id
     redirect "/accounts"
   else
