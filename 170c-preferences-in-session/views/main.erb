@@ -1,5 +1,21 @@
-<!-- TODO #1: create the view based on the mockup -->
-<!-- TODO #4: prefill the input elements based on instance variables -->
+<p>
+  Favorite color<br>
+  <%== select_tag :favorite_color, 
+    options_for_select(["red" , "green", "yellow"],
+    session[:color]), prompt: "" %>
+</p>
+
+<p>
+  Favorite letter<br>
+  <%== radio_button_tag :favorite_letter, "a", @letter == "a" %> A
+  <%== radio_button_tag :favorite_letter, "b", @letter == "b" %> B
+  <%== radio_button_tag :favorite_letter, "c", @letter == "c" %> C
+</p>
+
+<p>
+  Favorite number<br>
+  <%== text_field_tag :favorite_number, session[:number] %>
+</p>
 
 <p>
   <%== submit_tag "Update preferences" %>
