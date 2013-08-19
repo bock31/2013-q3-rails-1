@@ -19,7 +19,7 @@
         <%= dish.name %>
       </td>
       <td align="right">
-        <%= "$%.2f" % dish.price %>
+        <%= "$%.2f" % dish.price %> <!-- # "$%.2f" % is just adding a "$" and rounding to two decimals places -->
       </td>
       <td>
         <%== text_field_tag "quantity_for_dish_#{dish.id}", "", size: 2 %>
