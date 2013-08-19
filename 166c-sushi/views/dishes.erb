@@ -1,6 +1,16 @@
 <% @dishes.each do |dish| %>
   <h2><%= dish.name %></h2>
   <ul>
-    TODO: Write this
+    <% line_items = dish.line_items %>
+    <% line_items.each do |line_item| %>
+      <li>
+        Quantity
+        <%= line_item.quantity %>
+        ordered by
+        <%= line_item.order.table_number %>
+        on
+        <%= line_item.order.created_at %>
+      </li>
+    <% end %>
   </ul>
 <% end %>
