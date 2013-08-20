@@ -1,14 +1,13 @@
 require '../dvc-sinatra.rb'
 
 get "/" do
-  @letter = session[:favorite_letter]
+  @letter = session[:letter]
   halt erb(:main)
 end
 
 post "/" do
   session[:color]  = params[:favorite_color]  
   session[:letter] = params[:favorite_letter]
-  raise params[:favorite_letter].inspect
   session[:number] = params[:favorite_number]
   redirect "/"
 end
