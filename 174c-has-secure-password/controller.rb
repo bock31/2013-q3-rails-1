@@ -10,8 +10,17 @@ get "/users/new" do
 end
 
 post "/users/new" do
-  # TODO: Create new User with the specified username and password,
-  #   complaining if the username is missing or passwords don't match
+  @user = User.new
+  @user.username = params[:new_username]
+  @user.password = params[:password]
+  @user.password_confirmation = params[:password_confirmation]
+  @user.save
+  
+  if @user.save == true
+    redirect "/welcome"
+  else
+    halt erb(:new)
+  end
 end
 
 get "/login" do
@@ -19,8 +28,18 @@ get "/login" do
 end
 
 post "/login" do
-  # TODO: set user_id in session and redirect to /welcome if correct login,
-  #   otherwise complain "Unknown username" or "Wrong password"
+  named_user = User.where(username: params[:username]).first
+  
+  if named_user == nil
+    @message = "Unknown username"
+  elsif named_user.authenticate(params[:password]) != false
+    session[:user_id] = named_user.id
+    redirect "/welcome"
+  else
+    @message = "Wrong password"
+  end
+
+  halt erb(:login)
 end
 
 get "/welcome" do
