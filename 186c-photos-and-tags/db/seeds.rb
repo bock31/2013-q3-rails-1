@@ -5,3 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+photo1 = Photo.create! title: "Flatirons at dawn"
+photo2 = Photo.create! title: "Flatirons at sunset"
+photo3 = Photo.create! title: "Sunset from my window"
+photo4 = Photo.create! title: "Mysterious blur"
+
+tag1 = Tag.create! keyword: "Flatirons"
+tag2 = Tag.create! keyword: "dawn"
+tag3 = Tag.create! keyword: "sunset"
+
+photo1.tags << tag1
+photo1.tags << tag2
+photo2.tags << tag1
+photo3.tags << tag3
+
+
