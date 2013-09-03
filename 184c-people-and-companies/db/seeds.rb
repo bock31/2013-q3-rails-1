@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+microsoft = Company.create! name: "Microsoft"
+ibm = Company.create! name: "IBM"
+sun = Company.create! name: "Sun"
+
+Person.create! name: "John", company: microsoft
+Person.create! name: "Jill", company: ibm
+Person.create! name: "Jack", company: ibm
+Person.create! name: "Ursula", company: nil
