@@ -1,6 +1,9 @@
 class AdminController < ApplicationController
 
   def index
+    if session[:id] == nil
+      redirect_to "/admin/login" and return
+    end
     @houses = House.order(:id)
     render :index and return
   end
@@ -14,6 +17,41 @@ class AdminController < ApplicationController
     redirect_to "/admin/houses" and return
   end
 
+  def login
+    render :login and return
+  end
+  
+  def login_post
+    if params[:username] == ""
+      flash[:error] = "Username cannot be blank"
+      redirect_to "/admin/login" and return
+    end
+    
+    admin = Admin.where(username: params[:username]).first
+
+    if admin == nil
+      flash[:error] = "Incorrect username"
+      redirect_to "/admin/login" and return
+    end
+    if admin.username != params[:username]
+      flash[:error] = "Wrong username"
+      redirect_to "/admin/login" and return
+    end
+
+    if Admin.find(admin.id).authenticate(params[:password]) == false
+      flash[:error] = "Wrong password"
+      redirect_to "/admin/login" and return
+    else
+      session[:id] = admin.id
+      redirect_to "/admin/houses" and return
+    end
+  end
+  
+  def logout
+    session.clear
+    redirect_to "/admin/login" and return
+  end
+  
   def edit
     @house = House.where(id: params[:id]).first
     render :edit and return
