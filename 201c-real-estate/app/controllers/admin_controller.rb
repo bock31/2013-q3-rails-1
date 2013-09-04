@@ -1,9 +1,13 @@
 class AdminController < ApplicationController
-
-  def index
+ 
+  before_filter except: ["login", "login_post", "logout"] do 
     if session[:id] == nil
+      flash[:error] = "You must be logged in to access that page."
       redirect_to "/admin/login" and return
     end
+  end
+  
+  def index
     @houses = House.order(:id)
     render :index and return
   end
@@ -30,7 +34,7 @@ class AdminController < ApplicationController
     admin = Admin.where(username: params[:username]).first
 
     if admin == nil
-      flash[:error] = "Incorrect username"
+      flash[:error] = "Unknown username"
       redirect_to "/admin/login" and return
     end
     if admin.username != params[:username]
