@@ -14,6 +14,7 @@ class MainController < ApplicationController
   end
 
   def index
+    @blog_posts = BlogPost.order("written_at desc").all
     render :index and return
   end
 
@@ -45,6 +46,53 @@ class MainController < ApplicationController
     end
   end
 
+  def edit
+    @post = BlogPost.find(params[:id])
+    
+    if @author.id != @post.author_id
+      flash[:error] = "You don't have permission to edit that post."
+      redirect_to "/" and return
+    end
+    
+    render :edit and return
+  end
+  
+  def edit_post
+    @post = BlogPost.find(params[:id])
+    
+    if @author.id != @post.author_id
+      flash[:error] = "You don't have permission to edit that post."
+      redirect_to "/" and return
+    end
+
+    @post.written_at = params[:written_at]
+    @post.body       = params[:body]
+    
+    if @post.save == true
+      redirect_to "/" and return
+    else
+      render :edit and return
+    end
+  end
+  
+  def new
+    @post = BlogPost.new
+  end
+  
+  def new_post
+    @post            = BlogPost.new
+    @post.written_at = params[:written_at]
+    @post.body       = params[:body]
+    @post.author_id  = @author.id
+    
+    if @post.save == true
+      redirect_to "/" and return
+    else
+      render :new and return
+    end
+  end
+
+    
   def logout
     session.clear
     redirect_to "/" and return
