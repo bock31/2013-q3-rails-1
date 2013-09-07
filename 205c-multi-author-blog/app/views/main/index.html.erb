@@ -1,6 +1,29 @@
-<p>TODO: show blog posts</p>
+<% @blog_posts.each do |post| %>
 
-<p>To get you started, here are pictures of the two authors</p>
+  <div style='margin-bottom:10px'>
+    <div style='float:left'>
+      <%== image_tag post.author.portrait_filename %>
+    </div>
+    <div style='margin-left:130px;width:500px'>
+      <% if @author != nil && @author.id == post.author_id %>
+        <div style='float:right'>
+          <a href="/edit/<%= post.id %>">
+            edit
+          </a>
+        </div>
+      <% end %>
+      
+      <h2 style='display:inline'>
+        <%= post.written_at.strftime("%A, %B, %d, %Y") %>
+      </h2>
+      <br>
+      <%= post.body %>
 
-<%== image_tag Author.find(1).portrait_filename %>
-<%== image_tag Author.find(2).portrait_filename %>
+      <div style='float:right;font-weight:bold'>
+        &mdash;<%= post.author.full_name %>
+      </div>
+    </div>
+    <br style='clear:both'>
+  </div>
+  
+<% end %>
