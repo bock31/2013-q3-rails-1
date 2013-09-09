@@ -23,12 +23,12 @@ BlogPost.create! \
   body: "We had a most delicious journey to Marseilles, through a country full of vineyards, oliveyards, orange-trees, and the like sweet plantations, to which belong pleasantly situated villas built all of freestone."
  
 BlogPost.create! \
-  author: author1,
+  author: author1,  # could also write this as author_id: author1.id
   written_at: "1645-01-31",
   body: "Climbing a steep hill in Naples, we came to the monastery of the Carthusians, from whence is a most goodly prospect towards the sea and city, the one full of galleys and ships, the other of stately palaces, churches, castles, gardens, delicious fields and meadows, Mount Vesuvius smoking, doubtless one of the most considerable vistas in the world."
 
 BlogPost.create! \
-  author: author2,
+  author: author2,  # could also write this as author_id: author2.id
   written_at: "1771-12-06",
   body: "Yesterday I was prevented dining at unkle Joshua's by a snow storm which lasted till 12 o'clock today, I spent some part of yesterday afternoon and evening at Mr. Glovers. When I came home, the snow being so deep I was bro't home in arms. My aunt got Mr. Soley's Charlstown to fetch me. The snow is up to the peoples wast in some places in the street."
 
