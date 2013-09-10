@@ -1,29 +1,29 @@
 class SessionsController < ApplicationController
 
-  def login
-    render :login and return
+  def index
+    render :sessions and return
   end
 
-  def login_post
+  def create
     username = params[:username]
     password = params[:password]
     admin    = Admin.where(username: username).first
 
     if admin == nil
       flash.now[:error] = "Unknown username"
-      render :login and return
+      render :sessions and return
     elsif admin.authenticate(password) == false
       flash.now[:error] = "Wrong password"
-      render :login and return
+      render :sessions and return
     else 
       session[:admin_id] = admin.id
-      redirect_to "/admin/list_houses" and return
+      redirect_to "/admin_houses" and return
     end
   end
 
-  def logout
+  def destroy
     session.clear
-    redirect_to "/sessions/login" and return
+    redirect_to "/sessions" and return
   end
 
 end
