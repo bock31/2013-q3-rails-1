@@ -1,16 +1,16 @@
 App::Application.routes.draw do
-  get "/"               => "main#root"
-  get "/list_houses"    => "main#list_houses"
-  get "/show_house/:id" => "main#show_house"
+  get "/"               => "houses#root"
+  get "/houses"         => "houses#index"
+  get "/houses/:id"     => "houses#show"
 
-  get  "/sessions/login"  => "sessions#login"
-  post "/sessions/login"  => "sessions#login_post"
-  get  "/sessions/logout" => "sessions#logout"
+  get  "/sessions"      => "sessions#index"
+  post "/sessions"      => "sessions#create"
+  get  "/sessions/:id"  => "sessions#destroy"
 
-  get  "/admin/list_houses"      => "admin#list_houses"
-  get  "/admin/new_house"        => "admin#new_house"
-  post "/admin/new_house"        => "admin#new_house_post"
-  get  "/admin/edit_house/:id"   => "admin#edit_house"
-  post "/admin/edit_house/:id"   => "admin#edit_house_post"
-  get  "/admin/delete_house/:id" => "admin#delete_house"
+  get     "/admin_houses"            => "admin_houses#index"
+  get     "/admin_houses/new"        => "admin_houses#new"
+  post    "/admin_houses"            => "admin_houses#create"
+  get     "/admin_houses/:id/edit"   => "admin_houses#edit"
+  put     "/admin_houses/:id"        => "admin_houses#update"
+  delete  "/admin_houses/:id"        => "admin_houses#destroy"
 end
