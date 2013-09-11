@@ -3,7 +3,7 @@ App::Application.routes.draw do
   get "/houses"         => "houses#index"
   get "/houses/:id"     => "houses#show"
 
-  get  "/sessions"      => "sessions#index"
+  get  "/sessions"      => "sessions#new"
   post "/sessions"      => "sessions#create"
   get  "/sessions/:id"  => "sessions#destroy"
 
