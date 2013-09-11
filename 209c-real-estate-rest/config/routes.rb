@@ -1,7 +1,13 @@
 App::Application.routes.draw do
-  get "/"               => "houses#root"
-  get "/houses"         => "houses#index"
-  get "/houses/:id"     => "houses#show"
+
+  get "/" => "houses#root"
+  
+  resources "houses", path: "/houses", controller: "houses",
+    only: [:index, :show]
+    
+  # The above resources lines expands to:  
+  # get "/houses"         => "houses#index"
+  # get "/houses/:id"     => "houses#show"
 
   get  "/sessions"      => "sessions#new"
   post "/sessions"      => "sessions#create"
